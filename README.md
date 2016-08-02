@@ -1,1 +1,1 @@
-JSON decoding output plugin for postgresql
+JSON decoding output plugin for PostgreSQL

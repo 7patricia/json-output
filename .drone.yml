@@ -1,0 +1,11 @@
+cache:
+  mount:
+    - .git
+    - /drone/docker
+
+build:
+  image: docker:1.10-dind
+  commands:
+    - docker build .
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock:ro

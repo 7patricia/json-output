@@ -1,0 +1,14 @@
+\set ECHO none
+ created logical replication slot
+
+ {"schema":"json","table":"****","action":"insert","new":{"i":1}}
+ {"schema":"json","table":"****","action":"insert","new":{"i":2}}
+ {"schema":"json","table":"****","action":"insert","new":{"i":3}}
+ {"schema":"json","table":"****","action":"insert","new":{"i":4}}
+ {"schema":"json","table":"****","action":"insert","new":{"i":5}}
+ {"schema":"json","table":"****","action":"insert","new":{"i":6}}
+ {"schema":"json","table":"****","action":"insert","new":{"i":7}}
+ {"schema":"json","table":"****","action":"insert","new":{"i":8}}
+
+ deleted logical replication slot
+

@@ -1,0 +1,10 @@
+\set ECHO none
+ created logical replication slot
+
+ {"schema":"json","table":"test","action":"insert","new":{"i":1,"s":"simple text"}}
+ {"schema":"json","table":"test","action":"insert","new":{"i":2,"s":"text with \"quoted\" text"}}
+ {"schema":"json","table":"test","action":"insert","new":{"i":3,"s":"newlines\nand\r\ncarriage returns"}}
+ {"schema":"json","table":"test","action":"insert","new":{"i":4,"s":"quoted text with\n\"newline\""}}
+
+ deleted logical replication slot
+

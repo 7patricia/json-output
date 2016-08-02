@@ -1,0 +1,22 @@
+\set ECHO none
+ created logical replication slot
+
+ {"schema":"json","table":"tab1","action":"insert","new":{"i":1,"h":{}}}
+ {"schema":"json","table":"tab2","action":"insert","new":{"i":1,"j":0}}
+ {"schema":"json","table":"tab1","action":"insert","new":{"i":2,"h":{}}}
+ {"schema":"json","table":"tab2","action":"insert","new":{"i":2,"j":0}}
+ {"schema":"json","table":"tab1","action":"insert","new":{"i":3,"h":{}}}
+ {"schema":"json","table":"tab2","action":"insert","new":{"i":3,"j":0}}
+ {"schema":"json","table":"tab1","action":"insert","new":{"i":4,"h":{}}}
+ {"schema":"json","table":"tab2","action":"insert","new":{"i":4,"j":0}}
+ {"schema":"json","table":"tab1","action":"update","new":{"i":1,"h":{"i": "1", "2i": "2"}}}
+ {"schema":"json","table":"tab1","action":"update","new":{"i":2,"h":{"i": "2", "2i": "4"}}}
+ {"schema":"json","table":"tab1","action":"update","new":{"i":3,"h":{"i": "3", "2i": "6"}}}
+ {"schema":"json","table":"tab1","action":"update","new":{"i":4,"h":{"i": "4", "2i": "8"}}}
+ {"schema":"json","table":"tab1","action":"delete","old":{"i":1,"h":null}}
+ {"schema":"json","table":"tab1","action":"delete","old":{"i":3,"h":null}}
+ {"schema":"json","table":"tab2","action":"delete","old":{"i":1,"j":null}}
+ {"schema":"json","table":"tab2","action":"delete","old":{"i":3,"j":null}}
+
+ deleted logical replication slot
+

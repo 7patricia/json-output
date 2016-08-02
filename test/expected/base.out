@@ -1,0 +1,27 @@
+\set ECHO none
+ created logical replication slot
+
+ {"schema":"json","table":"test","action":"insert","new":{"i":1,"h":{}}}
+ {"schema":"json","table":"test","action":"insert","new":{"i":2,"h":{}}}
+ {"schema":"json","table":"test","action":"insert","new":{"i":3,"h":{}}}
+ {"schema":"json","table":"test","action":"insert","new":{"i":4,"h":{}}}
+ {"schema":"json","table":"test","action":"insert","new":{"i":5,"h":{}}}
+ {"schema":"json","table":"test","action":"insert","new":{"i":6,"h":{}}}
+ {"schema":"json","table":"test","action":"insert","new":{"i":7,"h":{}}}
+ {"schema":"json","table":"test","action":"insert","new":{"i":8,"h":{}}}
+ {"schema":"json","table":"test","action":"update","new":{"i":3,"h":{}},"old":{"i":3,"h":null}}
+ {"schema":"json","table":"test","action":"update","new":{"i":6,"h":{}},"old":{"i":6,"h":null}}
+ {"schema":"json","table":"test","action":"update","new":{"i":1,"h":{"i": "1", "2i": "2"}}}
+ {"schema":"json","table":"test","action":"update","new":{"i":2,"h":{"i": "2", "2i": "4"}}}
+ {"schema":"json","table":"test","action":"update","new":{"i":4,"h":{"i": "4", "2i": "8"}}}
+ {"schema":"json","table":"test","action":"update","new":{"i":5,"h":{"i": "5", "2i": "10"}}}
+ {"schema":"json","table":"test","action":"update","new":{"i":7,"h":{"i": "7", "2i": "14"}}}
+ {"schema":"json","table":"test","action":"update","new":{"i":8,"h":{"i": "8", "2i": "16"}}}
+ {"schema":"json","table":"test","action":"update","new":{"i":30,"h":{"i": "30", "2i": "60"}}}
+ {"schema":"json","table":"test","action":"update","new":{"i":60,"h":{"i": "60", "2i": "120"}}}
+ {"schema":"json","table":"test","action":"delete","old":{"i":1,"h":null}}
+ {"schema":"json","table":"test","action":"delete","old":{"i":5,"h":null}}
+ {"schema":"json","table":"test","action":"delete","old":{"i":7,"h":null}}
+
+ deleted logical replication slot
+
