@@ -24,6 +24,7 @@ END;
 
 SELECT * FROM json.changedata;
 
-SELECT 'deleted logical replication slot';
+SELECT 'deleted logical replication slot'
+  FROM pg_drop_replication_slot('json');
 
 DROP SCHEMA json CASCADE;

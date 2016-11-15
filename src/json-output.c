@@ -57,33 +57,24 @@ assign_tuple(HeapTuple dst, HeapTuple src, TupleDesc descr)
 	bool typisvarlena;
 	int i;
 
-	if (dst && src)
+	if (!dst && src)
+		return src;
+
+	heap_deform_tuple(dst, descr, values, isnull);
+
+	for (i = 0; i < descr->natts; i++)
 	{
-		heap_deform_tuple(src, descr, values, isnull);
+		struct varlena *value = (struct varlena *) DatumGetPointer(values[i]);
 
-		for (i = 0; i < descr->natts; i++)
-		{
-			if (isnull[i])
-			{
-				replace[i] = true;
-			}
-			else
-			{
-				struct varlena *value = (struct varlena *) DatumGetPointer(values[i]);
+		getTypeOutputInfo(descr->attrs[i]->atttypid, &typoutput, &typisvarlena);
 
-				getTypeOutputInfo(descr->attrs[i]->atttypid, &typoutput, &typisvarlena);
-
-				replace[i] = typisvarlena && !VARATT_IS_EXTERNAL_ONDISK(value);
-			}
-		}
-
-		return heap_modify_tuple(dst, descr, values, isnull, replace);
+		isnull[i] = replace[i] = typisvarlena && VARATT_IS_EXTERNAL_ONDISK(value);
 	}
 
 	if (src)
-		return src;
+		heap_deform_tuple(src, descr, values, isnull);
 
-	return dst;
+	return heap_modify_tuple(dst, descr, values, isnull, replace);
 }
 
 static void
@@ -125,7 +116,7 @@ json_decode_change(LogicalDecodingContext *ctx, ReorderBufferTXN *txn, Relation 
 			break;
 		case REORDER_BUFFER_CHANGE_UPDATE:
 			appendStringInfo(ctx->out, ",\"action\":\"update\"");
-			json_decode_output_tuple(ctx, "new", assign_tuple(oldtuple, newtuple, descr), descr);
+			json_decode_output_tuple(ctx, "new", assign_tuple(newtuple, oldtuple, descr), descr);
 			json_decode_output_tuple(ctx, "old", oldtuple, descr);
 			break;
 		case REORDER_BUFFER_CHANGE_DELETE:

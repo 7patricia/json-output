@@ -9,8 +9,8 @@
  {"schema":"json","table":"test","action":"insert","new":{"i":6,"h":{}}}
  {"schema":"json","table":"test","action":"insert","new":{"i":7,"h":{}}}
  {"schema":"json","table":"test","action":"insert","new":{"i":8,"h":{}}}
- {"schema":"json","table":"test","action":"update","new":{"i":3,"h":{}},"old":{"i":3,"h":null}}
- {"schema":"json","table":"test","action":"update","new":{"i":6,"h":{}},"old":{"i":6,"h":null}}
+ {"schema":"json","table":"test","action":"update","new":{"i":30,"h":{}},"old":{"i":3,"h":null}}
+ {"schema":"json","table":"test","action":"update","new":{"i":60,"h":{}},"old":{"i":6,"h":null}}
  {"schema":"json","table":"test","action":"update","new":{"i":1,"h":{"i": "1", "2i": "2"}}}
  {"schema":"json","table":"test","action":"update","new":{"i":2,"h":{"i": "2", "2i": "4"}}}
  {"schema":"json","table":"test","action":"update","new":{"i":4,"h":{"i": "4", "2i": "8"}}}
