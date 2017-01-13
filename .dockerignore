@@ -1,1 +1,6 @@
-.git
+*
+!Makefile
+!json-output.control
+!src
+!test
+!test.sh
