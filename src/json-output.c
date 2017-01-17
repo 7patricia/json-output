@@ -55,6 +55,7 @@ assign_tuple(HeapTuple dst, HeapTuple src, TupleDesc descr)
 	static bool replace[MaxHeapAttributeNumber];
 	Oid typoutput;
 	bool typisvarlena;
+	struct varlena *value;
 	int i;
 
 	if (!dst && src)
@@ -64,7 +65,10 @@ assign_tuple(HeapTuple dst, HeapTuple src, TupleDesc descr)
 
 	for (i = 0; i < descr->natts; i++)
 	{
-		struct varlena *value = (struct varlena *) DatumGetPointer(values[i]);
+		if (isnull[i])
+			continue;
+
+		value = (struct varlena *) DatumGetPointer(values[i]);
 
 		getTypeOutputInfo(descr->attrs[i]->atttypid, &typoutput, &typisvarlena);
 

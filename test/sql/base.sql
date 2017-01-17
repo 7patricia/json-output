@@ -13,7 +13,7 @@ CREATE EXTENSION IF NOT EXISTS hstore;
 
 CREATE TABLE IF NOT EXISTS test (
   i   integer PRIMARY KEY,
-  h   hstore NOT NULL DEFAULT ''
+  h   hstore DEFAULT ''
 );
 
 INSERT INTO test (i) SELECT i FROM generate_series(1, 8) AS i;
@@ -27,6 +27,7 @@ BEGIN;
 SET LOCAL search_path TO json, public;
 UPDATE test SET i = i * 10 WHERE i % 3 = 0;
 UPDATE test SET h = hstore('i', i::text)||hstore('2i', (2*i)::text);
+UPDATE test SET h = NULL WHERE i % 4 = 0;
 DELETE FROM test WHERE i % 2 = 1;
 END;
 
