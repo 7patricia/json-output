@@ -66,7 +66,10 @@ assign_tuple(HeapTuple dst, HeapTuple src, TupleDesc descr)
 	for (i = 0; i < descr->natts; i++)
 	{
 		if (isnull[i])
+		{
+			replace[i] = false;
 			continue;
+		}
 
 		value = (struct varlena *) DatumGetPointer(values[i]);
 

@@ -46,6 +46,10 @@ UPDATE xpto
                          FROM generate_series(1, 2000) AS g(i))
  WHERE id = 1;
 
+UPDATE xpto
+   SET toasted_col2 = NULL
+ WHERE id = 1;
+
 DELETE FROM xpto WHERE id = 1;
 
 SELECT * FROM json.changedata
