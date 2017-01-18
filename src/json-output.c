@@ -93,8 +93,12 @@ json_decode_output_tuple(LogicalDecodingContext *ctx, const char *key, HeapTuple
 	{
 		Datum row = heap_copy_tuple_as_datum(tuple, descr);
 		Datum json = DirectFunctionCall1(row_to_json, row);
-		char *out = text_to_cstring((text *) DatumGetPointer(json));
-		appendStringInfo(ctx->out, ",\"%s\":%s", key, out);
+		text *out = pg_detoast_datum_packed((text *) DatumGetPointer(json));
+
+		appendStringInfo(ctx->out, ",\"%s\":", key);
+		appendBinaryStringInfo(ctx->out, VARDATA_ANY(out), VARSIZE_ANY_EXHDR(out));
+
+		pfree(out);
 	}
 }
 
