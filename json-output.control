@@ -1,4 +1,4 @@
 comment = 'JSON output plugin'
-default_version = '0.0.3'
+default_version = '0.0.4'
 module_pathname = 'json-output'
 relocatable = true
