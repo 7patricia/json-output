@@ -1,8 +1,10 @@
 #include "postgres.h"
+#include "catalog/catalog.h"
 #include "replication/logical.h"
 #include "utils/builtins.h"
 #include "utils/lsyscache.h"
 #include "utils/json.h"
+#include "utils/rel.h"
 
 PG_MODULE_MAGIC;
 

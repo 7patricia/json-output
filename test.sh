@@ -11,6 +11,6 @@ cat <<-EOF >> $PGDATA/pg_hba.conf
 local replication all trust
 EOF
 
-gosu postgres pg_ctl -D "$PGDATA" -m fast -w restart
+pg_ctl -U "$POSTGRES_USER" -D "$PGDATA" -m fast -w restart
 
-make -e PGUSER=postgres test
+make -e PGUSER="$POSTGRES_USER" test
