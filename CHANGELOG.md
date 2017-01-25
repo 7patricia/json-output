@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.1.0](https://github.com/uphold/json-output/releases/tag/0.1.0) (2017-01-25)
+- Update postgres@9.6 [\#16](https://github.com/uphold/json-output/pull/16) ([kurayama](https://github.com/kurayama))
+
 ## [0.0.4](https://github.com/uphold/json-output/releases/tag/0.0.4) (2017-01-18)
 - Fix uninitialized variable [\#14](https://github.com/uphold/json-output/pull/14) ([promag](https://github.com/promag))
 
